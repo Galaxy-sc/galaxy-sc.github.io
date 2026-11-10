@@ -16,10 +16,10 @@
                     colors: {
                         background: '#030303',
                         surface: '#0A0A0A',
-                        primary: '#FF2E2E', // High-vis Red
+                        primary: '#FF2E2E',
                         primaryDark: '#cc0000',
                         secondary: '#888888',
-                        accent: '#3b82f6', // OWASP Blue hint
+                        accent: '#3b82f6',
                     },
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', '"Vazirmatn"', 'sans-serif'],
@@ -27,93 +27,43 @@
                     },
                     animation: {
                         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        glow: {
-                            'from': { boxShadow: '0 0 10px rgba(255, 46, 46, 0.1)' },
-                            'to': { boxShadow: '0 0 20px rgba(255, 46, 46, 0.3)' },
-                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            background-color: #030303;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
+        body { background-color: #030303; color: #ffffff; overflow-x: hidden; }
 
-        /* Modern Glassmorphism */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 8px 40px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 0 0 1px rgba(0,0,0,0.2), 0 8px 40px rgba(0,0,0,0.4);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass-panel-bright {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .glass-panel:hover, .glass-panel-bright:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px) scale(1.005);
-            box-shadow: 0 0 0 1px rgba(255, 46, 46, 0.2), 0 20px 60px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px) scale(1.005); box-shadow: 0 0 0 1px rgba(255, 46, 46, 0.2), 0 20px 60px rgba(0,0,0,0.5);
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #FFFFFF 0%, #A0A0A0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #FFFFFF 0%, #A0A0A0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         
         .mesh-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: 
-                radial-gradient(circle at 15% 50%, rgba(255, 46, 46, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.03), transparent 25%);
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        .bottom-glow {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            height: 600px;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 15% 50%, rgba(255, 46, 46, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.03), transparent 25%);
+            z-index: 0; pointer-events: none;
         }
 
         .lang-hidden { display: none !important; }
+        .fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .delay-100 { animation-delay: 100ms; }
         .delay-200 { animation-delay: 200ms; }
         .delay-300 { animation-delay: 300ms; }
@@ -122,13 +72,25 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: rgba(59, 130, 246, 0.05); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(59, 130, 246, 0.3); border-radius: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(59, 130, 246, 0.5); }
+
+        /* CYBER AI AVATAR STYLES */
+        .cyber-svg { width: 100%; height: 100%; overflow: visible; }
+        .cyber-frame { stroke: #FF2E2E; stroke-width: 6; fill: none; stroke-linejoin: miter; stroke-linecap: square; filter: drop-shadow(0 0 5px rgba(255, 46, 46, 0.6)); }
+        .cyber-accent { fill: #FF2E2E; filter: drop-shadow(0 0 5px rgba(255, 46, 46, 0.6)); }
+        .face-parts .eye-l, .face-parts .eye-r, .face-parts .mouth { 
+            fill: #FF2E2E; filter: drop-shadow(0 0 8px rgba(255, 46, 46, 0.8));
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), fill 0.2s, filter 0.2s; 
+        }
+        .face-parts .eye-l { transform-origin: 65px 100px; }
+        .face-parts .eye-r { transform-origin: 135px 100px; }
+        .face-parts .mouth { transform-origin: 100px 145px; }
+        .is-blinking { transform: scaleY(0.1) !important; transition-duration: 0.05s !important; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-primary selection:text-black">
     
     <div class="mesh-bg"></div>
 
-    <!-- Nav -->
     <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center">
         <div class="glass-panel !rounded-full px-6 py-3 flex items-center gap-6 md:gap-12 !bg-black/60 shadow-2xl">
             <div class="flex items-center gap-3">
@@ -151,37 +113,39 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 fade-in-up">
             <div class="lg:col-span-12 glass-panel rounded-[40px] p-8 md:p-10 relative overflow-hidden group">
                 <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-                
                 <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
-                    <div class="relative w-32 h-32 md:w-40 md:h-40 shrink-0">
-                        <div class="absolute inset-0 rounded-full border-2 border-primary/20 animate-[spin_10s_linear_infinite]"></div>
-                        <img src="https://avatars.githubusercontent.com/u/94435150" alt="Profile" class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
-                        <div class="absolute bottom-2 right-2 w-4 h-4 bg-green-500 rounded-full border-4 border-[#0A0A0A]"></div>
+                    
+                    <!-- DYNAMIC AI AVATAR -->
+                    <div id="cyber-hero-container" class="relative w-32 h-32 md:w-40 md:h-40 shrink-0 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-primary/10 blur-xl rounded-full group-hover:bg-primary/20 transition-all duration-700 z-0"></div>
+                        <svg viewBox="0 0 200 200" class="cyber-svg relative z-10">
+                            <path d="M 120 35 L 55 35 L 35 55 L 35 130 L 47 130 L 77 160 L 145 160 L 165 140 L 165 50" class="cyber-frame" />
+                            <g class="cyber-frame"><line x1="126" y1="35" x2="141" y2="50" /><line x1="138" y1="35" x2="153" y2="50" /><line x1="150" y1="35" x2="165" y2="50" /></g>
+                            <polygon points="32,139 41,139 70,168 53,168 32,147" class="cyber-accent" />
+                            <g class="face-parts">
+                                <g class="eye-l"><polygon points="35,90 95,102 60,112" /><polygon points="42,112 52,122 57,115" /></g>
+                                <g class="eye-r"><polygon points="165,90 105,102 140,112" /><polygon points="158,112 148,122 143,115" /></g>
+                                <rect class="mouth" x="85" y="143" width="30" height="5" />
+                            </g>
+                        </svg>
                     </div>
                     
-                    <div class="text-center md:text-left space-y-4 max-w-2xl flex-1">
+                    <div class="text-center md:text-left space-y-4 max-w-2xl flex-1 mt-2 md:mt-0">
                         <div class="overflow-visible"> 
-                            <h1 class="text-2xl md:text-4xl font-black text-gradient tracking-tight py-2 mb-1" data-lang="en">
-                                Meysam Bal-afkan
-                            </h1>
-                            <h1 class="text-2xl md:text-4xl font-black text-gradient tracking-tight py-2 mb-1 md:text-right text-center leading-relaxed lang-hidden" data-lang="fa">
-                                میثم بال‌افکن
-                            </h1>
-                            
+                            <h1 class="text-2xl md:text-4xl font-black text-gradient tracking-tight py-2 mb-1" data-lang="en">Meysam Bal-afkan</h1>
+                            <h1 class="text-2xl md:text-4xl font-black text-gradient tracking-tight py-2 mb-1 md:text-right text-center leading-relaxed lang-hidden" data-lang="fa">میثم بال‌افکن</h1>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider">
                                 <span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Security Researcher
                             </div>
                         </div>
-                        
                         <p class="text-gray-300 leading-relaxed text-sm md:text-base" data-lang="en">
                             Specialized in <strong>Vulnerability Research</strong>, <strong>Exploit Development</strong>, <strong>Web/Mobile Pentesting</strong>, and <strong>OSINT</strong>. Modernizing global testing standards at OWASP.
                         </p>
                         <p class="text-gray-300 leading-relaxed text-sm md:text-base lang-hidden md:text-right text-center" data-lang="fa">
                             متخصص در <strong>پژوهش‌های امنیتی</strong>، <strong>توسعه اکسپلویت</strong>، <strong>تست نفوذ وب/موبایل</strong> و <strong>OSINT</strong>. توسعه‌دهنده و مدرن‌ساز استانداردهای جهانی تست امنیت در OWASP.
                         </p>
-                        
                         <div class="flex flex-wrap gap-3 justify-center md:justify-start pt-2">
-                            <a href="https://www.owasp.community/projects/crt" target="_blank" class="px-5 py-2.5 rounded-xl bg-white text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-white/10">
+                            <a href="https://owasp.org/projects/crt" target="_blank" class="px-5 py-2.5 rounded-xl bg-white text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-white/10">
                                 <span class="material-symbols-rounded">code</span> OWASP
                             </a>
                             <a href="https://github.com/Galaxy-sc" target="_blank" class="px-5 py-2.5 rounded-xl bg-white text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-lg shadow-white/10">
@@ -198,44 +162,33 @@
             <div class="glass-panel rounded-[24px] p-5 flex flex-col justify-center relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-start z-10">
-                    <div class="w-10 h-10 rounded-xl bg-yellow-500/20 text-yellow-500 flex items-center justify-center mb-3">
-                        <span class="material-symbols-rounded text-xl">emoji_events</span>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-yellow-500/20 text-yellow-500 flex items-center justify-center mb-3"><span class="material-symbols-rounded text-xl">emoji_events</span></div>
                     <a href="https://tinyurl.com/linkedin-brics" target="_blank" class="material-symbols-rounded text-gray-500 hover:text-white transition-colors text-lg">open_in_new</a>
                 </div>
                 <div class="text-2xl font-black text-white relative z-10" data-lang="en">1st Place</div>
                 <div class="text-2xl font-black text-white relative z-10 lang-hidden" data-lang="fa">مقام اول</div>
                 <div class="text-xs text-gray-400 mt-1 relative z-10">BRICS CTF 2025</div>
             </div>
-
             <div class="glass-panel rounded-[24px] p-5 flex flex-col justify-center relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-start z-10">
-                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-500 flex items-center justify-center mb-3">
-                        <span class="material-symbols-rounded text-xl">military_tech</span>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-500 flex items-center justify-center mb-3"><span class="material-symbols-rounded text-xl">military_tech</span></div>
                 </div>
                 <div class="text-xl font-black text-white relative z-10" data-lang="en">1st Provincial</div>
                 <div class="text-xl font-black text-white relative z-10 lang-hidden" data-lang="fa">رتبه اول استان</div>
                 <div class="text-[10px] text-gray-400 mt-1 relative z-10" data-lang="en">WorldSkills Iran 2025</div>
                 <div class="text-[10px] text-gray-400 mt-1 relative z-10 lang-hidden" data-lang="fa">مسابقات ملی مهارت ۲۰۲۵</div>
             </div>
-            
             <div class="glass-panel rounded-[24px] p-5 flex flex-col justify-center">
-                <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-300 flex items-center justify-center mb-3">
-                    <span class="material-symbols-rounded text-xl">public</span>
-                </div>
+                <div class="w-10 h-10 rounded-xl bg-white/5 text-gray-300 flex items-center justify-center mb-3"><span class="material-symbols-rounded text-xl">public</span></div>
                 <div class="text-2xl font-black text-white">#19</div>
                 <div class="text-xs text-gray-400 mt-1" data-lang="en">Global Rank (HackenProof)</div>
                 <div class="text-xs text-gray-400 mt-1 lang-hidden" data-lang="fa">رتبه جهانی (HackenProof)</div>
             </div>
-
             <div class="glass-panel rounded-[24px] p-5 flex flex-col justify-center relative overflow-hidden group">
                 <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-start z-10">
-                    <div class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-3">
-                        <span class="material-symbols-rounded text-xl">psychology</span>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-3"><span class="material-symbols-rounded text-xl">psychology</span></div>
                     <a href="https://esanj.ir/responses/d4a1dd7c-ab36-4b84-9452-dbaf64ce9df8" target="_blank" class="material-symbols-rounded text-gray-500 hover:text-white transition-colors text-lg">open_in_new</a>
                 </div>
                 <div class="text-xl font-black text-white relative z-10">High IQ</div>
@@ -244,237 +197,166 @@
             </div>
         </div>
 
+        <!-- GLOBAL IMPACT & RESEARCH (BENTO BOX ARCHITECTURE) -->
         <div class="fade-in-up delay-200">
             <div class="flex items-center gap-3 mb-6 px-2 mt-8">
                 <span class="material-symbols-rounded text-primary">public</span>
                 <h2 class="text-2xl font-bold tracking-tight text-white">
-                    <span data-lang="en">Global Impact & Research</span>
-                    <span class="lang-hidden" data-lang="fa">تاثیرات جهانی و پژوهش‌ها</span>
+                    <span data-lang="en">Global Impact & Standards</span>
+                    <span class="lang-hidden" data-lang="fa">تاثیرات و استانداردهای جهانی</span>
                 </h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mb-6">
                 
-                <!-- OWASP CRT BANNER -->
-                <div class="glass-panel rounded-[32px] p-6 relative overflow-hidden group border-blue-500/30 hover:border-blue-500/60 transition-all bg-blue-900/5 flex flex-col h-full">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 flex-1">
-                        <!-- Left: Text -->
-                        <div class="flex-1">
-                            <div class="flex items-center gap-4 mb-4">
-                                <div class="w-14 h-14 rounded-full bg-blue-600/20 border border-blue-500/50 flex items-center justify-center text-blue-400 shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                                    <span class="material-symbols-rounded text-3xl">verified_user</span>
+                <!-- 1. GLOBAL PROJECT LEADERSHIP -->
+                <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-blue-500/30 hover:border-blue-500/60 transition-all bg-blue-900/5 flex flex-col h-full shadow-[0_0_20px_rgba(59,130,246,0.05)]">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                                    <span class="material-symbols-rounded text-2xl">account_tree</span>
                                 </div>
                                 <div>
-                                    <div class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-0.5" data-lang="en">Official Project Leader</div>
-                                    <div class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-0.5 lang-hidden" data-lang="fa">لیدر رسمی پروژه</div>
-                                    <h3 class="text-xl font-bold text-white mb-1">OWASP-CRT</h3>
+                                    <h3 class="text-xl font-bold text-white">Project Leadership</h3>
+                                    <div class="text-blue-400 text-[10px] font-black uppercase tracking-widest mt-0.5">OWASP Global</div>
                                 </div>
                             </div>
-                            <p class="text-xs text-gray-400 mb-4 leading-relaxed" data-lang="en">Managing the OWASP-CRT project and issuing official global security certifications.</p>
-                            <p class="text-xs text-gray-400 mb-4 leading-relaxed lang-hidden" data-lang="fa">مدیریت پروژه OWASP-CRT و صدور گواهینامه‌های رسمی و معتبر جهانی امنیت سایبری.</p>
-                            
-                            <a href="https://www.owasp.community/projects/crt" target="_blank" class="inline-flex px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs transition-colors items-center gap-1.5 shadow-[0_0_15px_rgba(59,130,246,0.3)] shrink-0 mt-auto">
-                                Verify Project <span class="material-symbols-rounded text-[14px]">arrow_outward</span>
-                            </a>
+                            <span class="material-symbols-rounded text-blue-500/20 text-4xl">language</span>
                         </div>
-                        <!-- Right: Certificate Image -->
-                        <div class="w-full md:w-48 shrink-0 relative group/cert mt-auto mb-auto">
-                            <div class="absolute -inset-2 bg-blue-500/20 rounded-xl blur-xl opacity-0 group-hover/cert:opacity-100 transition-opacity duration-500"></div>
-                            <img src="owasp-crt.PNG" alt="OWASP CRT Certificate" class="relative w-full h-auto rounded-xl border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.2)] group-hover/cert:scale-105 transition-transform duration-500 object-cover cursor-pointer" onclick="openModal('owasp-crt.PNG')">
+
+                        <div class="space-y-4 flex-1">
+                            <a href="https://owasp.org/projects/robotics-security-testing-guide" target="_blank" class="block p-4 rounded-xl bg-black/40 border border-white/5 group/box hover:border-blue-500/40 transition-colors">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                                    <div class="font-bold text-white text-sm">OWASP Robotics Security (OWASP RSTG)</div>
+                                </div>
+                                <div class="text-xs text-gray-400 leading-relaxed" data-lang="en">Project Leader. Defining the cyber-physical risk taxonomy, Robotics Top 10, and architectural test cases.</div>
+                                <div class="text-xs text-gray-400 leading-relaxed lang-hidden" data-lang="fa">مدیر پروژه. تعریف تکسونومی ریسک‌های سایبرفیزیکال، رباتیک Top 10 و معماری تست‌کیس‌ها.</div>
+                            </a>
+                            
+                            <a href="https://owasp.org/projects/crt" target="_blank" class="block p-4 rounded-xl bg-black/40 border border-white/5 group/box hover:border-blue-500/40 transition-colors">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                    <div class="font-bold text-white text-sm">OWASP CRT</div>
+                                </div>
+                                <div class="text-xs text-gray-400 leading-relaxed" data-lang="en">Project Leader. Directing the Community Recognition Tool and issuing global official certifications.</div>
+                                <div class="text-xs text-gray-400 leading-relaxed lang-hidden" data-lang="fa">مدیر پروژه. هدایت و معماری سیستم گواهینامه‌های رسمی و قدردانی جهانی (CRT).</div>
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- CVE Section (Zero Days فقط) -->
-                <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-primary/30 hover:border-primary/50 flex flex-col h-full">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- 2. WSTG CORE AUTHOR -->
+                <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-white/10 hover:border-white/30 transition-all flex flex-col h-full">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="flex items-center gap-4 mb-6">
-                            <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(255,46,46,0.4)] shrink-0">
-                                <span class="material-symbols-rounded text-3xl text-black font-bold">bug_report</span>
+                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white shrink-0">
+                                <span class="material-symbols-rounded text-2xl">menu_book</span>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-bold text-white">CVEs</h3>
-                                <div class="text-primary font-mono text-xs uppercase tracking-wide font-bold mt-1">Zero-Day Discoveries</div>
+                                <h3 class="text-xl font-bold text-white">WSTG Core Author</h3>
+                                <div class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-0.5">Global Standard Documentation</div>
                             </div>
                         </div>
 
-                        <!-- Zero Days List -->
-                        <div class="space-y-4 flex-1">
-                            <div class="bg-black/40 p-5 rounded-xl border border-white/5 relative overflow-hidden group/cve hover:border-primary/30 transition-colors">
-                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
-                                <div class="flex justify-between items-center mb-2 pl-2">
-                                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-70004" target="_blank" class="text-white font-bold text-sm hover:text-primary transition-colors">CVE-2025-70004</a>
-                                    <span class="text-gray-400 font-mono text-[9px] px-2 py-0.5 rounded bg-white/5 border border-white/10 font-bold tracking-wider">RESERVED</span>
-                                </div>
-                                <div class="text-gray-300 text-xs leading-relaxed pl-2" data-lang="en">Core security middleware bypass in Node.js <code>kontas</code> framework. Bypassed built-in XSS protection via unsanitized GET queries.</div>
-                                <div class="text-gray-300 text-xs leading-relaxed pl-2 lang-hidden text-right" data-lang="fa">بای‌پس میدل‌ور امنیتی فریمورک Node.js به نام <code>kontas</code>. دور زدن محافظت XSS از طریق کوئری‌های GET.</div>
-                            </div>
-
-                            <div class="bg-black/40 p-5 rounded-xl border border-white/5 relative overflow-hidden group/cve hover:border-primary/30 transition-colors">
-                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
-                                <div class="flex justify-between items-center mb-2 pl-2">
-                                    <a href="https://www.cve.org/CVERecord?id=CVE-2025-70003" target="_blank" class="text-white font-bold text-sm hover:text-primary transition-colors">CVE-2025-70003</a>
-                                    <span class="text-gray-400 font-mono text-[9px] px-2 py-0.5 rounded bg-white/5 border border-white/10 font-bold tracking-wider">RESERVED</span>
-                                </div>
-                                <div class="text-gray-300 text-xs leading-relaxed pl-2" data-lang="en">Identified a Hard-coded Credentials flaw (CWE-798) in <code>url-hash</code> package allowing integrity check bypass.</div>
-                                <div class="text-gray-300 text-xs leading-relaxed pl-2 lang-hidden text-right" data-lang="fa">شناسایی نقص Hard-coded Credentials در پکیج <code>url-hash</code> که امکان دور زدن بررسی یکپارچگی را فراهم می‌کرد.</div>
-                            </div>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed" data-lang="en">
+                            Official frontispiece author modernizing global testing standards and authoring chapters on critical, low-level vulnerability vectors.
+                        </p>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed lang-hidden" data-lang="fa">
+                            نویسنده اصلی (Frontispiece). بازنویسی استانداردهای جهانی تست نفوذ و تالیف فصول مربوط به آسیب‌پذیری‌های بحرانی.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-2.5 mt-auto">
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">WebAssembly</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">CSTI</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">XXE</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">Insecure Deserialization</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">Smuggling</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">Splitting</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">JWT Injection</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">JSON Pollution</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-white/5 text-white text-[11px] font-bold border border-white/10 hover:bg-white/10 hover:border-white/30 transition-colors cursor-default">Null CORS</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                
-                <!-- OWASP WSTG AUTHOR -->
-                <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-white/10 hover:border-white/20 transition-all flex flex-col h-full">
-                    <div class="relative z-10 flex flex-col h-full">
-                        <div class="flex items-center gap-4 mb-5">
-                            <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white shrink-0">
-                                <span class="material-symbols-rounded text-blue-500 text-2xl">menu_book</span>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white">OWASP WSTG</h3>
-                                <div class="text-gray-400 text-xs font-bold mt-1 uppercase tracking-widest">Core Author</div>
-                            </div>
+            <!-- 3. WEAPONIZED EXPLOITS & ZERO DAYS (Full Width) -->
+            <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-primary/30 hover:border-primary/50 flex flex-col">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative z-10 flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shrink-0 shadow-[0_0_15px_rgba(255,46,46,0.3)]">
+                            <span class="material-symbols-rounded text-2xl">bug_report</span>
                         </div>
-
-                        <p class="text-gray-300 text-sm mb-6 leading-relaxed" data-lang="en">
-                            Heavily modernizing global testing standards and authoring chapters on critical vulnerability vectors.
-                        </p>
-                        <p class="text-gray-300 text-sm mb-6 leading-relaxed lang-hidden" data-lang="fa">
-                            نویسنده اصلی. بازنویسی و مدرن‌سازی استانداردهای جهانی تست نفوذ و نویسنده فصول آسیب‌پذیری‌های بحرانی.
-                        </p>
-                        
-                        <!-- WSTG List (Blue Colors) -->
-                        <div class="space-y-3 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                            <a href="https://github.com/OWASP/wstg/commit/ee2f38a676a3f2527af7dbbaf57982a5c16fa60e" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">swap_calls</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Smuggling & Splitting</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Added H2C & HTTP/2 Downgrade</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/commit/7c51c8e3bd5b1a46028a0b7e884c1c23ccf41c36" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">data_object</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">XML Injection & XXE</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Added Out-of-Band (OOB) XXE vectors</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/commit/3d5849bc4d96f95dd72c3f2a093e789a6db6f298" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">lock_open</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Insecure Deserialization</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Authored entire chapter methodology</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/pull/1292/changes" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">history_edu</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Client Side Template Injection</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Authored entire CSTI chapter</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/commit/bc84e28e7aa9130e1feaefa4bdbd5201c2ff1446" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">policy</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">CORS Exploitation</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Added 'Null Origin' vector</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/commit/80190a538a452e4617d44642ed46b0dfdfffb507" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">enhanced_encryption</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">JWT Testing Vectors</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Added 'kid' parameter injection</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/OWASP/wstg/commit/caf1a4522943fc03a3ecb8e507f8f7eefd037b27" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-blue-400 group-hover/link:text-white transition-colors">api</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Input Validation</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">JSON Parameter Pollution</div>
-                                </div>
-                            </a>
+                        <div>
+                            <h3 class="text-xl font-bold text-white" data-lang="en">Exploits, Tools & Zero-Days</h3>
+                            <h3 class="text-xl font-bold text-white lang-hidden" data-lang="fa">اکسپلویت‌ها، ابزارها و Zero-Days</h3>
+                            <div class="text-primary text-[10px] font-black uppercase tracking-widest mt-0.5">Weaponized Payloads</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="glass-panel rounded-[32px] p-8 relative overflow-hidden group border-primary/30 hover:border-primary/50 transition-all flex flex-col h-full">
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10 flex flex-col h-full">
-                        <div class="flex items-center gap-4 mb-5">
-                            <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shrink-0 shadow-[0_0_15px_rgba(255,46,46,0.3)]">
-                                <span class="material-symbols-rounded text-2xl">code</span>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-white" data-lang="en">Exploits & PoCs</h3>
-                                <h3 class="text-lg font-bold text-white lang-hidden" data-lang="fa">اکسپلویت‌ها و PoCها</h3>
-                                <div class="text-primary text-xs font-bold mt-1 uppercase tracking-widest">Weaponized Payloads</div>
-                            </div>
-                        </div>
-
-                        <p class="text-gray-300 text-sm mb-6 leading-relaxed" data-lang="en">
-                            Developed functional exploits, proof-of-concepts, and security templates for critical vulnerabilities.
-                        </p>
-                        <p class="text-gray-300 text-sm mb-6 leading-relaxed lang-hidden" data-lang="fa">
-                            توسعه اکسپلویت‌های کاربردی، کدهای اثبات مفهوم (PoC) و قالب‌های امنیتی برای آسیب‌پذیری‌های بحرانی.
-                        </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
-                        <!-- Exploits List (Red/Orange Colors matching WSTG style) -->
-                        <div class="space-y-3 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                            <a href="https://github.com/Galaxy-sc/SandBreak" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">bug_report</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">CVE-2026-23830</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">SandBreak Exploit</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/Galaxy-sc/CVE-2026-47423-dompurify-xss-detector" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">bug_report</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">CVE-2026-47423</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">DOMPurify XSS Detector</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/Galaxy-sc/CVE-2026-0920-WordPress-LA-Studio-Exploit" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">bug_report</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">CVE-2026-0920</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">WordPress LA Studio Exploit</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/Galaxy-sc/CVE-2025-12139-WordPress-Integrate-Google-Drive-Exploit" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">bug_report</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">CVE-2025-12139</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">WP Integrate Google Drive Exploit</div>
-                                </div>
-                            </a>
-                            <a href="https://vulmon.com/vulnerabilitydetails?qid=CVE-2026-47423" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">travel_explore</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Vulmon Mentions</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">CVE-2026-47423 Database Record</div>
-                                </div>
-                            </a>
-                            <a href="https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2025/CVE-2025-12139.yaml" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 transition-colors group/link">
-                                <span class="material-symbols-rounded text-primary group-hover/link:text-white transition-colors">terminal</span>
-                                <div>
-                                    <div class="text-white text-xs font-bold">Nuclei Template</div>
-                                    <div class="text-[10px] text-gray-400 mt-0.5">Official ProjectDiscovery Merge</div>
-                                </div>
-                            </a>
-                        </div>
+                        <!-- NEW WASM-Hunter Tool -->
+                        <a href="https://github.com/Galaxy-sc/WASM-Hunter/" target="_blank" class="flex flex-col p-5 rounded-2xl bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-colors group/link relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+                            <div class="flex justify-between items-start mb-2 pl-2">
+                                <div class="text-white font-bold text-sm">WASM-Hunter</div>
+                                <span class="text-[9px] px-2 py-0.5 rounded bg-primary/30 text-white font-black tracking-wider shadow-[0_0_10px_rgba(255,46,46,0.5)]">WSTG REF</span>
+                            </div>
+                            <div class="text-xs text-gray-300 leading-relaxed pl-2" data-lang="en">
+                                Static binary analysis tool developed in Go. Extracts endpoints and secrets from WebAssembly binaries without execution. Officially referenced in OWASP WSTG.
+                            </div>
+                            <div class="text-xs text-gray-300 leading-relaxed pl-2 lang-hidden text-right" data-lang="fa">
+                                ابزار تحلیل استاتیک باینری نوشته شده با Go. استخراج اندپوینت‌ها و سکرت‌ها از باینری‌های WebAssembly بدون اجرای کد. رفرنس شده به صورت رسمی در OWASP WSTG.
+                            </div>
+                        </a>
+
+                        <!-- NEW sshole Exploit -->
+                        <a href="https://github.com/Galaxy-sc/CVE-2026-123158" target="_blank" class="flex flex-col p-5 rounded-2xl bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-colors group/link relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+                            <div class="flex justify-between items-start mb-2 pl-2">
+                                <div class="text-white font-bold text-sm">sshole (CVE-2026-123158)</div>
+                                <span class="text-[9px] px-2 py-0.5 rounded bg-primary/30 text-white font-black tracking-wider shadow-[0_0_10px_rgba(255,46,46,0.5)]">NEW</span>
+                            </div>
+                            <div class="text-xs text-gray-300 leading-relaxed pl-2" data-lang="en">
+                                OpenSSH Authentication Bypass detector for musl-based Linux (Alpine). Performs a two-step probe inside a single SSH handshake to detect oversized password bugs without PAM.
+                            </div>
+                            <div class="text-xs text-gray-300 leading-relaxed pl-2 lang-hidden text-right" data-lang="fa">
+                                دتکتور بای‌پس احراز هویت OpenSSH برای سیستم‌های لینوکسی musl-based. انجام پروب دو مرحله‌ای درون یک هندشیک SSH بدون نیاز به PAM.
+                            </div>
+                        </a>
+
+                        <!-- CVE-2025-70004 -->
+                        <a href="https://www.cve.org/CVERecord?id=CVE-2025-70004" target="_blank" class="flex flex-col p-5 rounded-2xl bg-black/40 hover:bg-white/5 border border-white/10 transition-colors group/link">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-white font-bold text-sm">kontas Node.js Bypass (CVE-2025-70004)</div>
+                                <span class="text-[9px] px-2 py-0.5 rounded bg-white/10 text-gray-400 font-bold tracking-wider">0-DAY</span>
+                            </div>
+                            <div class="text-xs text-gray-400 leading-relaxed" data-lang="en">Core security middleware bypass in Node.js kontas framework via unsanitized GET queries.</div>
+                            <div class="text-xs text-gray-400 leading-relaxed lang-hidden text-right" data-lang="fa">بای‌پس میدل‌ور امنیتی فریمورک Node.js به نام kontas از طریق کوئری‌های GET.</div>
+                        </a>
+                        
+                        <!-- CVE-2025-12139 -->
+                        <a href="https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2025/CVE-2025-12139.yaml" target="_blank" class="flex flex-col p-5 rounded-2xl bg-black/40 hover:bg-white/5 border border-white/10 transition-colors group/link">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="text-white font-bold text-sm">WP Integrate Google Drive (CVE-2025-12139)</div>
+                                <span class="text-[9px] px-2 py-0.5 rounded bg-white/10 text-gray-400 font-bold tracking-wider">MERGED</span>
+                            </div>
+                            <div class="text-xs text-gray-400 leading-relaxed" data-lang="en">Information Disclosure exploit. Authored functional PoC and official ProjectDiscovery Nuclei Template.</div>
+                            <div class="text-xs text-gray-400 leading-relaxed lang-hidden text-right" data-lang="fa">اکسپلویت نشت اطلاعات و توسعه قالب رسمی Nuclei برای مخزن ProjectDiscovery.</div>
+                        </a>
+
                     </div>
                 </div>
-
             </div>
         </div>
 
+        <!-- OPERATIONAL HISTORY -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4 fade-in-up delay-300">
             <!-- Bug Bounty -->
             <div class="lg:col-span-6 space-y-6 flex flex-col">
@@ -572,7 +454,6 @@
                 </div>
 
                 <div class="grid grid-cols-2 gap-6">
-                    <!-- Other Targets -->
                     <div class="space-y-4">
                         <h3 class="text-sm font-bold text-gray-400 uppercase px-2">Other Targets</h3>
                         <div class="glass-panel rounded-2xl p-4 flex items-center justify-between group hover:bg-white/5">
@@ -591,34 +472,17 @@
                         </div>
                     </div>
 
-                    <!-- Tech Stack -->
                     <div class="space-y-4">
                         <h3 class="text-sm font-bold text-gray-400 uppercase px-2">Tech Stack</h3>
                         <div class="grid grid-cols-2 gap-3">
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Web Pentest</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Mobile Pentest</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Network Pentest</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">OSINT</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Golang</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Bash</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Nuclei</div>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition">
-                                <div class="text-xs font-bold text-white">Frida</div>
-                            </div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Web Pentest</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Mobile Pentest</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Network Pentest</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">OSINT</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Golang</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Bash</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Nuclei</div></div>
+                            <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition"><div class="text-xs font-bold text-white">Frida</div></div>
                         </div>
                     </div>
                 </div>
@@ -636,61 +500,36 @@
             </h2>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
-                <!-- Info Hunter -->
                 <a href="https://github.com/Galaxy-sc/Information-Hunter" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">menu_book</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">menu_book</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Information Hunter</div>
                     <div class="text-[10px] text-gray-300">OSINT Methodologies</div>
                 </a>
-                
-                <!-- Bash Pentest -->
                 <a href="https://github.com/Galaxy-sc/bash-for-web-penetration-testing" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">terminal</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">terminal</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Bash for Pentest</div>
                     <div class="text-[10px] text-gray-300">Automation Scripts</div>
                 </a>
-                
-                <!-- Vuln Checklist -->
                 <a href="https://github.com/Galaxy-sc/vulnerability-Checklist-farsi" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">checklist</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">checklist</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Vuln Checklist</div>
                     <div class="text-[10px] text-gray-300">Persian Translation</div>
                 </a>
-
-                <!-- Android Docs -->
                 <a href="https://galaxy-sc.github.io/android-pentest-docs/" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">smartphone</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">smartphone</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Android Pentest Docs</div>
                     <div class="text-[10px] text-gray-300">Penetration Testing</div>
                 </a>
-
-                <!-- EC-Council -->
                 <a href="https://codered.eccouncil.org/certificate/e1da7b0e-df02-4b8c-93bb-8ebeeb183dea" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">verified_user</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">verified_user</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">EC-Council</div>
                     <div class="text-[10px] text-gray-300">Android Bug Hunting</div>
                 </a>
-
-                <!-- Harvard CS50 -->
                 <a href="https://cs50.harvard.edu/certificates/5ade2cac-6cf8-42f7-bd56-88d7b5a5c716" target="_blank" class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">school</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">school</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Harvard University</div>
                     <div class="text-[10px] text-gray-300">CS50 Computer Science</div>
                 </a>
-
-                <!-- OWASP CRT CERTIFICATION -->
                 <div class="glass-panel-bright rounded-2xl p-6 border-blue-500/20 bg-blue-900/5 flex flex-col items-center justify-center text-center col-span-1 md:col-span-2 shadow-[0_0_20px_rgba(59,130,246,0.05)]">
                     <div class="flex items-center gap-3 mb-2">
                         <span class="material-symbols-rounded text-blue-400 text-xl">military_tech</span>
@@ -701,12 +540,8 @@
                         Verify Certification
                     </a>
                 </div>
-
-                <!-- Computer Engineering -->
                 <div class="glass-panel-bright rounded-2xl p-6 hover:border-primary/50 transition-all group flex flex-col items-center text-center md:col-span-2 lg:col-span-4 mt-2 bg-white/[0.02]">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5">
-                        <span class="material-symbols-rounded text-xl">engineering</span>
-                    </div>
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-white shadow-lg border border-white/5"><span class="material-symbols-rounded text-xl">engineering</span></div>
                     <div class="text-sm font-bold text-white mb-1 group-hover:text-primary transition-colors">Computer Engineering</div>
                     <div class="text-[11px] text-gray-400 tracking-widest uppercase mt-1">Bachelor Student</div>
                 </div>
@@ -721,11 +556,8 @@
         </p>
     </footer>
 
-    <!-- Image Zoom Modal -->
     <div id="image-modal" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm p-4 md:p-10 flex items-center justify-center cursor-pointer" onclick="closeModal()">
-        <button class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[110]">
-            <span class="material-symbols-rounded text-3xl">close</span>
-        </button>
+        <button class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[110]"><span class="material-symbols-rounded text-3xl">close</span></button>
         <img id="modal-image" src="" alt="Certificate Large" class="max-w-full max-h-full rounded-2xl border-4 border-white/20 shadow-2xl transition-transform duration-500 scale-90">
     </div>
 
@@ -738,20 +570,16 @@
 
             if (lang === 'fa') {
                 document.documentElement.setAttribute('dir', 'rtl');
-                
                 enElements.forEach(el => el.classList.add('lang-hidden'));
                 faElements.forEach(el => el.classList.remove('lang-hidden'));
-
                 btnFa.classList.add('bg-primary', 'text-black');
                 btnFa.classList.remove('text-gray-400', 'hover:text-white');
                 btnEn.classList.remove('bg-primary', 'text-black');
                 btnEn.classList.add('text-gray-400', 'hover:text-white');
             } else {
                 document.documentElement.setAttribute('dir', 'ltr');
-                
                 faElements.forEach(el => el.classList.add('lang-hidden'));
                 enElements.forEach(el => el.classList.remove('lang-hidden'));
-
                 btnEn.classList.add('bg-primary', 'text-black');
                 btnEn.classList.remove('text-gray-400', 'hover:text-white');
                 btnFa.classList.remove('bg-primary', 'text-black');
@@ -782,6 +610,72 @@
                 document.body.style.overflow = '';
             }, 500); 
         }
+
+        // ==========================================
+        // CYBER BRAIN AI (The Organic Detective)
+        // ==========================================
+        class CyberBrain {
+            constructor(containerId) {
+                const container = document.getElementById(containerId);
+                if(!container) return;
+                
+                this.eyeL = container.querySelector('.eye-l');
+                this.eyeR = container.querySelector('.eye-r');
+                this.mouth = container.querySelector('.mouth');
+                
+                this.startThinking();
+                this.startBlinking();
+            }
+
+            rand(min, max) { return Math.random() * (max - min) + min; }
+
+            startThinking() {
+                let x = this.rand(-12, 12);
+                let y = this.rand(-4, 4);
+                let scaleYL = this.rand(0.7, 1.1);
+                let scaleYR = scaleYL; 
+                
+                let mouthScaleX = 1;
+                let mouthScaleY = 1;
+                if(Math.random() > 0.5) {
+                    mouthScaleX = this.rand(0.6, 1.4);
+                    mouthScaleY = this.rand(0.5, 2);
+                }
+                
+                let delay = this.rand(600, 2500);
+
+                if (this.eyeL && !this.eyeL.classList.contains('is-blinking')) {
+                    this.eyeL.style.transform = `translate(${x}px, ${y}px) scaleY(${scaleYL})`;
+                }
+                if (this.eyeR && !this.eyeR.classList.contains('is-blinking')) {
+                    this.eyeR.style.transform = `translate(${x}px, ${y}px) scaleY(${scaleYR})`;
+                }
+                if (this.mouth) {
+                    this.mouth.style.transform = `translate(0px, 0px) scale(${mouthScaleX}, ${mouthScaleY})`;
+                }
+
+                setTimeout(() => this.startThinking(), delay);
+            }
+
+            startBlinking() {
+                const nextBlink = this.rand(2000, 6000);
+                setTimeout(() => {
+                    if(this.eyeL) this.eyeL.classList.add('is-blinking');
+                    if(this.eyeR) this.eyeR.classList.add('is-blinking');
+                    
+                    setTimeout(() => {
+                        if(this.eyeL) this.eyeL.classList.remove('is-blinking');
+                        if(this.eyeR) this.eyeR.classList.remove('is-blinking');
+                    }, 100);
+                    
+                    this.startBlinking();
+                }, nextBlink);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new CyberBrain('cyber-hero-container');
+        });
     </script>
 </body>
 </html>
